@@ -4,7 +4,10 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
+import csv
 
+with open('files\input\data.csv', "r") as csv_file:
+    data= csv_file.readlines()
 
 def pregunta_08():
     """
@@ -27,3 +30,23 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+
+
+    data1 = [i.replace('\n', '') for i in data]
+    data1 = [i.split('\t') for i in data1]
+
+
+    colum1 = [int(row[1]) for row in data1]
+    colum0 = [row[0] for row in data1]
+
+
+    lista1_int = sorted(set(colum1))
+
+
+    result = []
+    for i in lista1_int:
+        comparacion = [row[0] for row in data1 if int(row[1]) == i]
+        comparacion_orga = sorted(set(comparacion))
+        result.append((i, comparacion_orga))
+
+    return result

@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+import csv
+
+with open('files\input\data.csv', "r") as csv_file:
+    data= csv_file.readlines()
 
 def pregunta_10():
     """
@@ -20,3 +24,11 @@ def pregunta_10():
 
 
     """
+    data1 = [i.replace('\n','') for i in data]
+    data1 = [i.split('\t') for i in data1]
+
+    result = [
+        (colum[0], len(colum[3].split(',')), len(colum[4].split(',')))
+        for colum in data1
+        ]   
+    return result 

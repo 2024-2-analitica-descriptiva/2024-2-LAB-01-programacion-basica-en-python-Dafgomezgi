@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+import csv
+
+with open('files\input\data.csv', "r") as csv_file:
+    data= csv_file.readlines()
 
 def pregunta_04():
     """
@@ -26,3 +30,31 @@ def pregunta_04():
      ('12', 3)]
 
     """
+
+    data1= [i.replace('\n','') for i in data]
+    data1 = [i.split('\t') for i in data]
+
+    y=[] 
+
+    for z in data1:
+        y.append(z[2].split('-'))
+
+    fila_0 = [fila[1] for fila in y]
+   
+    list_1 = sorted(set(fila_0))
+
+    suma=[]
+    C=0
+    a=[]
+    for p in list_1:
+        for x in fila_0:
+            if x == list_1[C]:
+                a.append(1)
+        suma.append(sum(a))
+        a=[]
+        C+=1
+
+    resultado = list(zip(list_1, suma))
+    return resultado
+
+
