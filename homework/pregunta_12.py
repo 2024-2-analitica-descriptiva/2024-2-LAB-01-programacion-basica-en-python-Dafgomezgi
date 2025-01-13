@@ -5,9 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 import csv
-
-with open('files\input\data.csv', "r") as csv_file:
-    data= csv_file.readlines()
+with open('data.csv', "r") as csv_file:
+     data= csv_file.readlines()
 
 def pregunta_12():
     """
@@ -18,6 +17,7 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+
     data1 = [i.replace('\n', ' ') for i in data]
     data1 = [i.split('\t') for i in data1]
     col1 = [row[0] for row in data]

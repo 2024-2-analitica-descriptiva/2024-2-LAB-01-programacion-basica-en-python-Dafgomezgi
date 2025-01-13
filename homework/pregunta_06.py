@@ -6,7 +6,7 @@ utilizar pandas, numpy o scipy.
 """
 import csv
 
-with open('files\input\data.csv', "r") as csv_file:
+with open('data.csv', "r") as csv_file:
     data= csv_file.readlines()
 
 def pregunta_06():
@@ -29,6 +29,7 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    data1 = open('data.csv', 'r').readlines()
     data1 = [i.replace('\n','') for i in data]
     data1 = [i.split('\t') for i in data]    
     a = [i[4].split(',') for i in data1]

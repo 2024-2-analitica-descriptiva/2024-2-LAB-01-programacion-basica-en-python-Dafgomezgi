@@ -7,7 +7,7 @@ utilizar pandas, numpy o scipy.
 
 import csv
 
-with open('files\input\data.csv', "r") as csv_file:
+with open('data.csv', "r") as csv_file:
     data= csv_file.readlines()
 
 def pregunta_04():
